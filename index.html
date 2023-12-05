@@ -22,12 +22,12 @@
                 <input type="text" class="new-todo-element" name="userTodo" id="userTodo" v-model="newTodoElement" @keyup.enter="addNewTodoItem(newTodoElement)">
             </div>
             <ul class="todo-list" v-if="todoList.length > 0">
-                <li class="todo-item" v-for="(todoElement, index) in todoList">
-                    <p>
-                        {{ todoElement }}
+                <li class="todo-item" v-for="(todoElement, index) in todoList" :data-id="todoElement.id">
+                    <p :class="(todoElement.done) ? 'erased' : ''" @click="interactWithElement(index)">
+                        {{ todoElement.id }} - {{ todoElement.text }}
                     </p>
                     <span>
-                        <i class="fa-solid fa-trash" @click="removeTodoElement(index)"></i>
+                        <i class="fa-solid fa-trash" @click="removeTodoElement(todoElement.id)"></i>
                     </span>
                 </li>
             </ul>

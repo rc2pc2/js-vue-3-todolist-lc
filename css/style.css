@@ -53,3 +53,7 @@ ul.todo-list > li.todo-item:hover{
 ul.todo-list > li.todo-item span i:hover{
     color: red;
 }
+
+ul.todo-list > li.todo-item > p.erased{
+    text-decoration: line-through;
+}
